@@ -22,36 +22,43 @@ namespace AluguelCarros
             
         }
 
-        private void lblcadastro_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void bntEntrar_Click(object sender, EventArgs e)
         {
-            FrmPrincipal product = new FrmPrincipal();
+            string nome = txbName.Text;
+            string email = txbEma.Text;
+            string senha = txbSen.Text;
+            string confirmarsenha = txbConSen.Text;
+            MessageBox.Show($"Bem Vindo! {nome}");
+
+            FrmCentral product = new FrmCentral();
             this.Visible = false;
             product.ShowDialog();
             this.Visible = true;
-
-            string nomecompleto = c.Text;
-            string email = txbEmail.Text;
-            string telefone = txbTelefone.Text;
-            string cpf = txbCpf.Text;
-            string senha = txbsenha.Text;
-            string confirmarsenha = txbconfirmarsenha.Text;
-            MessageBox.Show($"Cadastro realizado com sucesso!\n\nNome Completo: {nomecompleto}\nE-mail: {email}\nTelefone: {telefone}\nCPF: {cpf}\nSenha: {senha}\nConfirmar Senha: {confirmarsenha}",
-                    "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmCad product = new FrmCad();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void txbConSen_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void lblCpf_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FrmInicial telaAnterior = new FrmInicial();
+            telaAnterior.Show();
         }
     }
 }

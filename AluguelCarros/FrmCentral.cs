@@ -38,5 +38,10 @@ namespace AluguelCarros
             FrmInicial telaAnterior = new FrmInicial();
             telaAnterior.Show();
         }
+
+        private void PtbCentral_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

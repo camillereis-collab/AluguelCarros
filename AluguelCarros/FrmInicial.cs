@@ -52,6 +52,11 @@ namespace AluguelCarros
                 Application.Exit();
             }
         }
+
+        private void PtbInicial_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

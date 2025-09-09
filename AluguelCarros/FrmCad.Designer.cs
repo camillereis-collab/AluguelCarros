@@ -44,6 +44,8 @@
             this.txbconfirmarsenha = new System.Windows.Forms.TextBox();
             this.PtbCad = new System.Windows.Forms.PictureBox();
             this.btnaVoltar = new System.Windows.Forms.Button();
+            this.lblCnh = new System.Windows.Forms.Label();
+            this.txbCnh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PtbCad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(367, 212);
+            this.lblTelefone.Location = new System.Drawing.Point(364, 271);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(49, 13);
             this.lblTelefone.TabIndex = 2;
@@ -93,7 +95,7 @@
             // 
             // txbTelefone
             // 
-            this.txbTelefone.Location = new System.Drawing.Point(427, 212);
+            this.txbTelefone.Location = new System.Drawing.Point(427, 264);
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(141, 20);
             this.txbTelefone.TabIndex = 5;
@@ -111,7 +113,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(367, 264);
+            this.lblEmail.Location = new System.Drawing.Point(364, 318);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 8;
@@ -120,7 +122,7 @@
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(367, 319);
+            this.lblSenha.Location = new System.Drawing.Point(364, 363);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(38, 13);
             this.lblSenha.TabIndex = 9;
@@ -129,7 +131,7 @@
             // lblConfirmarsenha
             // 
             this.lblConfirmarsenha.AutoSize = true;
-            this.lblConfirmarsenha.Location = new System.Drawing.Point(562, 317);
+            this.lblConfirmarsenha.Location = new System.Drawing.Point(558, 360);
             this.lblConfirmarsenha.Name = "lblConfirmarsenha";
             this.lblConfirmarsenha.Size = new System.Drawing.Size(85, 13);
             this.lblConfirmarsenha.TabIndex = 10;
@@ -137,21 +139,21 @@
             // 
             // txbEmail
             // 
-            this.txbEmail.Location = new System.Drawing.Point(427, 259);
+            this.txbEmail.Location = new System.Drawing.Point(427, 311);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(165, 20);
             this.txbEmail.TabIndex = 11;
             // 
             // txbsenha
             // 
-            this.txbsenha.Location = new System.Drawing.Point(427, 314);
+            this.txbsenha.Location = new System.Drawing.Point(427, 360);
             this.txbsenha.Name = "txbsenha";
             this.txbsenha.Size = new System.Drawing.Size(112, 20);
             this.txbsenha.TabIndex = 12;
             // 
             // txbconfirmarsenha
             // 
-            this.txbconfirmarsenha.Location = new System.Drawing.Point(660, 317);
+            this.txbconfirmarsenha.Location = new System.Drawing.Point(659, 356);
             this.txbconfirmarsenha.Name = "txbconfirmarsenha";
             this.txbconfirmarsenha.Size = new System.Drawing.Size(124, 20);
             this.txbconfirmarsenha.TabIndex = 13;
@@ -160,7 +162,7 @@
             // 
             this.PtbCad.Image = ((System.Drawing.Image)(resources.GetObject("PtbCad.Image")));
             this.PtbCad.Location = new System.Drawing.Point(-15, -15);
-            this.PtbCad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PtbCad.Margin = new System.Windows.Forms.Padding(2);
             this.PtbCad.Name = "PtbCad";
             this.PtbCad.Size = new System.Drawing.Size(830, 474);
             this.PtbCad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -171,7 +173,7 @@
             // btnaVoltar
             // 
             this.btnaVoltar.Location = new System.Drawing.Point(50, 414);
-            this.btnaVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnaVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnaVoltar.Name = "btnaVoltar";
             this.btnaVoltar.Size = new System.Drawing.Size(56, 19);
             this.btnaVoltar.TabIndex = 15;
@@ -179,11 +181,29 @@
             this.btnaVoltar.UseVisualStyleBackColor = true;
             this.btnaVoltar.Click += new System.EventHandler(this.btnaVoltar_Click);
             // 
+            // lblCnh
+            // 
+            this.lblCnh.AutoSize = true;
+            this.lblCnh.Location = new System.Drawing.Point(367, 220);
+            this.lblCnh.Name = "lblCnh";
+            this.lblCnh.Size = new System.Drawing.Size(30, 13);
+            this.lblCnh.TabIndex = 16;
+            this.lblCnh.Text = "CNH";
+            // 
+            // txbCnh
+            // 
+            this.txbCnh.Location = new System.Drawing.Point(427, 213);
+            this.txbCnh.Name = "txbCnh";
+            this.txbCnh.Size = new System.Drawing.Size(141, 20);
+            this.txbCnh.TabIndex = 17;
+            // 
             // FrmCad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txbCnh);
+            this.Controls.Add(this.lblCnh);
             this.Controls.Add(this.btnaVoltar);
             this.Controls.Add(this.txbconfirmarsenha);
             this.Controls.Add(this.txbsenha);
@@ -225,5 +245,7 @@
         private System.Windows.Forms.TextBox txbconfirmarsenha;
         private System.Windows.Forms.PictureBox PtbCad;
         private System.Windows.Forms.Button btnaVoltar;
+        private System.Windows.Forms.Label lblCnh;
+        private System.Windows.Forms.TextBox txbCnh;
     }
 }

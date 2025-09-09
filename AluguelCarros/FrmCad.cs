@@ -35,6 +35,7 @@ namespace AluguelCarros
             string email = txbEmail.Text;
             string telefone = txbTelefone.Text;
             string cpf = txbCpf.Text;
+            string Cnh = txbCnh.Text; 
             string senha = txbsenha.Text;
             string confirmarsenha = txbconfirmarsenha.Text;
 
@@ -43,6 +44,7 @@ namespace AluguelCarros
                 string.IsNullOrEmpty(email) ||
                 string.IsNullOrEmpty(telefone) ||
                 string.IsNullOrEmpty(cpf) ||
+                string.IsNullOrEmpty(Cnh) ||
                 string.IsNullOrEmpty(senha) ||
                 string.IsNullOrEmpty(confirmarsenha))
             {
@@ -59,7 +61,7 @@ namespace AluguelCarros
             }
 
             string conexao = @"Server=sqlexpress;Database=CJ302752XPR2;User Id=aluno;Password=aluno";
-            string sql = "INSERT INTO Clientes (Nome, CPF, Telefone, Email, Senha) VALUES (@Nome, @CPF, @Telefone, @Email, @Senha)";
+            string sql = "INSERT INTO Clientes (Nome, CPF, CNH, Telefone, Email, Senha) VALUES (@Nome, @CPF, @CNH, @Telefone, @Email, @Senha)";
 
             try
             {
@@ -68,6 +70,7 @@ namespace AluguelCarros
                 {
                     cmd.Parameters.AddWithValue("@Nome", nomecompleto);
                     cmd.Parameters.AddWithValue("@CPF", cpf);
+                    cmd.Parameters.AddWithValue("@CNH", Cnh);
                     cmd.Parameters.AddWithValue("@Telefone", telefone);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Senha", senha);
@@ -77,7 +80,7 @@ namespace AluguelCarros
                 } // <-- aqui o conn é fechado automaticamente
 
                 MessageBox.Show(
-                    $"Cadastro realizado com sucesso!\n\nNome Completo: {nomecompleto}\nE-mail: {email}\nTelefone: {telefone}\nCPF: {cpf}\nSenha: {senha}\nConfirmar Senha: {confirmarsenha}",
+                    $"Cadastro realizado com sucesso!\n\nNome Completo: {nomecompleto}\nE-mail: {email}\nTelefone: {telefone}\nCPF: {cpf}\nCNH: {Cnh}\nSenha: {senha}\nConfirmar Senha: {confirmarsenha}",
                     "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information
                 );
 

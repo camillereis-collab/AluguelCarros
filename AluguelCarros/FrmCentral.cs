@@ -43,5 +43,10 @@ namespace AluguelCarros
         {
 
         }
+
+        private void txbLocalRetirada_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

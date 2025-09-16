@@ -43,15 +43,16 @@
             // txbLocalRetirada
             // 
             this.txbLocalRetirada.Location = new System.Drawing.Point(230, 141);
-            this.txbLocalRetirada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbLocalRetirada.Margin = new System.Windows.Forms.Padding(2);
             this.txbLocalRetirada.Name = "txbLocalRetirada";
             this.txbLocalRetirada.Size = new System.Drawing.Size(109, 20);
             this.txbLocalRetirada.TabIndex = 1;
+            this.txbLocalRetirada.TextChanged += new System.EventHandler(this.txbLocalRetirada_TextChanged);
             // 
             // txbData
             // 
             this.txbData.Location = new System.Drawing.Point(373, 141);
-            this.txbData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbData.Margin = new System.Windows.Forms.Padding(2);
             this.txbData.Name = "txbData";
             this.txbData.Size = new System.Drawing.Size(76, 20);
             this.txbData.TabIndex = 2;
@@ -59,7 +60,7 @@
             // txbHora
             // 
             this.txbHora.Location = new System.Drawing.Point(487, 141);
-            this.txbHora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbHora.Margin = new System.Windows.Forms.Padding(2);
             this.txbHora.Name = "txbHora";
             this.txbHora.Size = new System.Drawing.Size(76, 20);
             this.txbHora.TabIndex = 3;
@@ -101,7 +102,7 @@
             // 
             this.PtbCentral.Image = ((System.Drawing.Image)(resources.GetObject("PtbCentral.Image")));
             this.PtbCentral.Location = new System.Drawing.Point(-19, -27);
-            this.PtbCentral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PtbCentral.Margin = new System.Windows.Forms.Padding(2);
             this.PtbCentral.Name = "PtbCentral";
             this.PtbCentral.Size = new System.Drawing.Size(630, 397);
             this.PtbCentral.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +113,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Location = new System.Drawing.Point(50, 330);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(56, 19);
             this.btnVoltar.TabIndex = 8;
@@ -133,7 +134,7 @@
             this.Controls.Add(this.txbData);
             this.Controls.Add(this.txbLocalRetirada);
             this.Controls.Add(this.PtbCentral);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCentral";
             this.Text = "FrmCentral";
             ((System.ComponentModel.ISupportInitialize)(this.PtbCentral)).EndInit();

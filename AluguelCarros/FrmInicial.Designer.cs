@@ -33,6 +33,7 @@
             this.btnCad = new System.Windows.Forms.Button();
             this.btnenter = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PtbInicial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +41,7 @@
             // 
             this.PtbInicial.Image = ((System.Drawing.Image)(resources.GetObject("PtbInicial.Image")));
             this.PtbInicial.Location = new System.Drawing.Point(-6, -3);
-            this.PtbInicial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PtbInicial.Margin = new System.Windows.Forms.Padding(2);
             this.PtbInicial.Name = "PtbInicial";
             this.PtbInicial.Size = new System.Drawing.Size(616, 369);
             this.PtbInicial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -52,7 +53,7 @@
             // btnCad
             // 
             this.btnCad.Location = new System.Drawing.Point(50, 219);
-            this.btnCad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCad.Margin = new System.Windows.Forms.Padding(2);
             this.btnCad.Name = "btnCad";
             this.btnCad.Size = new System.Drawing.Size(80, 19);
             this.btnCad.TabIndex = 1;
@@ -63,7 +64,7 @@
             // btnenter
             // 
             this.btnenter.Location = new System.Drawing.Point(218, 219);
-            this.btnenter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnenter.Margin = new System.Windows.Forms.Padding(2);
             this.btnenter.Name = "btnenter";
             this.btnenter.Size = new System.Drawing.Size(56, 19);
             this.btnenter.TabIndex = 2;
@@ -74,7 +75,7 @@
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(525, 337);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(56, 19);
             this.btnSair.TabIndex = 3;
@@ -82,16 +83,29 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // btnAdmin
+            // 
+            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
+            this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAdmin.ImageKey = "(nenhum/a)";
+            this.btnAdmin.Location = new System.Drawing.Point(566, 49);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(22, 23);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // FrmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnenter);
             this.Controls.Add(this.btnCad);
             this.Controls.Add(this.PtbInicial);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInicial";
             this.Text = "FrmInicial";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
@@ -106,5 +120,6 @@
         private System.Windows.Forms.Button btnCad;
         private System.Windows.Forms.Button btnenter;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnAdmin;
     }
 }

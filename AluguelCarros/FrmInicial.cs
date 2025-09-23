@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AluguelCarros
 {
@@ -56,6 +57,14 @@ namespace AluguelCarros
         private void PtbInicial_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            FrmLogADM product = new FrmLogADM();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
         }
     }
 

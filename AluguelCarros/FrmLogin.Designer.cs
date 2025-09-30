@@ -92,7 +92,7 @@
             // txbName
             // 
             this.txbName.Location = new System.Drawing.Point(261, 141);
-            this.txbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbName.Margin = new System.Windows.Forms.Padding(2);
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(150, 20);
             this.txbName.TabIndex = 5;
@@ -100,7 +100,7 @@
             // txbEma
             // 
             this.txbEma.Location = new System.Drawing.Point(261, 208);
-            this.txbEma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbEma.Margin = new System.Windows.Forms.Padding(2);
             this.txbEma.Name = "txbEma";
             this.txbEma.Size = new System.Drawing.Size(150, 20);
             this.txbEma.TabIndex = 6;
@@ -108,7 +108,7 @@
             // txbSen
             // 
             this.txbSen.Location = new System.Drawing.Point(261, 282);
-            this.txbSen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbSen.Margin = new System.Windows.Forms.Padding(2);
             this.txbSen.Name = "txbSen";
             this.txbSen.Size = new System.Drawing.Size(114, 20);
             this.txbSen.TabIndex = 7;
@@ -116,7 +116,7 @@
             // txbConSen
             // 
             this.txbConSen.Location = new System.Drawing.Point(531, 284);
-            this.txbConSen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbConSen.Margin = new System.Windows.Forms.Padding(2);
             this.txbConSen.Name = "txbConSen";
             this.txbConSen.Size = new System.Drawing.Size(127, 20);
             this.txbConSen.TabIndex = 8;
@@ -125,7 +125,7 @@
             // bntEntrar
             // 
             this.bntEntrar.Location = new System.Drawing.Point(585, 375);
-            this.bntEntrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bntEntrar.Margin = new System.Windows.Forms.Padding(2);
             this.bntEntrar.Name = "bntEntrar";
             this.bntEntrar.Size = new System.Drawing.Size(56, 19);
             this.bntEntrar.TabIndex = 9;
@@ -135,8 +135,8 @@
             // 
             // btnAqui
             // 
-            this.btnAqui.Location = new System.Drawing.Point(373, 383);
-            this.btnAqui.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAqui.Location = new System.Drawing.Point(376, 384);
+            this.btnAqui.Margin = new System.Windows.Forms.Padding(2);
             this.btnAqui.Name = "btnAqui";
             this.btnAqui.Size = new System.Drawing.Size(48, 19);
             this.btnAqui.TabIndex = 10;
@@ -147,7 +147,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Location = new System.Drawing.Point(86, 375);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(56, 19);
             this.btnVoltar.TabIndex = 11;
@@ -159,7 +159,7 @@
             // 
             this.PtbLogin.Image = ((System.Drawing.Image)(resources.GetObject("PtbLogin.Image")));
             this.PtbLogin.Location = new System.Drawing.Point(-13, -6);
-            this.PtbLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PtbLogin.Margin = new System.Windows.Forms.Padding(2);
             this.PtbLogin.Name = "PtbLogin";
             this.PtbLogin.Size = new System.Drawing.Size(724, 445);
             this.PtbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -184,7 +184,7 @@
             this.Controls.Add(this.lblEma);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.PtbLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.PtbLogin)).EndInit();

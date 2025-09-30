@@ -98,6 +98,7 @@
             this.btnAQUIADM.TabIndex = 7;
             this.btnAQUIADM.Text = "AQUI";
             this.btnAQUIADM.UseVisualStyleBackColor = true;
+            this.btnAQUIADM.Click += new System.EventHandler(this.btnAQUIADM_Click);
             // 
             // FrmLogADM
             // 

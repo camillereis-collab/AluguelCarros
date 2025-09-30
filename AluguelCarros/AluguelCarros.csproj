@@ -58,6 +58,12 @@
     <Compile Include="FrmCad.Designer.cs">
       <DependentUpon>FrmCad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadAdm.Designer.cs">
+      <DependentUpon>FrmCadAdm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCentral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCad.resx">
       <DependentUpon>FrmCad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadAdm.resx">
+      <DependentUpon>FrmCadAdm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCentral.resx">
       <DependentUpon>FrmCentral.cs</DependentUpon>

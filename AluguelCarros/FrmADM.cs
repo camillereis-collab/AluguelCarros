@@ -16,5 +16,13 @@ namespace AluguelCarros
         {
             InitializeComponent();
         }
+
+        private void btnAQUIADM_Click(object sender, EventArgs e)
+        {
+            FrmCadAdm product = new FrmCadAdm();
+            this.Visible = false;
+            product.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

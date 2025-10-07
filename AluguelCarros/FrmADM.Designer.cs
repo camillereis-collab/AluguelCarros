@@ -47,6 +47,7 @@
             this.btnlogadm.TabIndex = 1;
             this.btnlogadm.Text = "LOGIN";
             this.btnlogadm.UseVisualStyleBackColor = true;
+            this.btnlogadm.Click += new System.EventHandler(this.btnlogadm_Click);
             // 
             // lblEmailADM
             // 

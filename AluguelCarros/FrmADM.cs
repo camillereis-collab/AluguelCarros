@@ -24,5 +24,10 @@ namespace AluguelCarros
             product.ShowDialog();
             this.Visible = true;
         }
+
+        private void btnlogadm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

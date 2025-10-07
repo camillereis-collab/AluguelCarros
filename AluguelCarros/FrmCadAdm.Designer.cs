@@ -178,7 +178,8 @@
             this.dtpADM.Name = "dtpADM";
             this.dtpADM.Size = new System.Drawing.Size(200, 20);
             this.dtpADM.TabIndex = 16;
-            this.dtpADM.Value = new System.DateTime(2025, 9, 30, 12, 30, 40, 0);
+            this.dtpADM.Value = new System.DateTime(2025, 10, 7, 0, 0, 0, 0);
+            //this.dtpADM.ValueChanged += new System.EventHandler(this.dtpADM_ValueChanged);
             // 
             // FrmCadAdm
             // 

@@ -85,7 +85,6 @@
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
             this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdmin.ImageKey = "(nenhum/a)";
             this.btnAdmin.Location = new System.Drawing.Point(566, 49);
@@ -107,7 +106,7 @@
             this.Controls.Add(this.PtbInicial);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInicial";
-            this.Text = "FrmInicial";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PtbInicial)).EndInit();
             this.ResumeLayout(false);

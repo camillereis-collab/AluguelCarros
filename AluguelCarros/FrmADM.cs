@@ -38,7 +38,7 @@ namespace AluguelCarros
         }
 
         private void btnlogadm_Click(object sender, EventArgs e)
-        { 
+        {
             string email = txbemailADM.Text.Trim();
             string senha = txbsenhaADM.Text.Trim();
 
@@ -48,12 +48,16 @@ namespace AluguelCarros
                 return;
             }
 
-            string connectionString = @"sua_string_de_conexao_aqui";
+            // ✅ String de conexão correta
+            string connectionString = @"Server=sqlexpress;Database=CJ302752XPR2;User Id=aluno;Password=aluno";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT senha FROM Clientes WHERE email=@Email";
+
+                // ✅ Busca senha na tabela de administradores
+                string query = "SELECT Senha FROM Admins WHERE Email = @Email";
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -66,25 +70,25 @@ namespace AluguelCarros
 
                         if (senhaHash == senhaArmazenada)
                         {
-                            MessageBox.Show("Login efetuado com sucesso!");
-                            // Abrir tela principal
+                            MessageBox.Show("Login efetuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // ✅ Abre a tela central e fecha o login
                             this.Hide();
                             FrmCentral form = new FrmCentral();
-                            form.Show();
+                            form.ShowDialog();
+                            this.Close();
                         }
                         else
                         {
-                            MessageBox.Show("Senha incorreta.");
+                            MessageBox.Show("Senha incorreta.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Usuário não encontrado.");
+                        MessageBox.Show("Administrador não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
         }
-
     }
 }
-

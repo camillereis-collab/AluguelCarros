@@ -64,6 +64,12 @@
     <Compile Include="FrmCadAdm.Designer.cs">
       <DependentUpon>FrmCadAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadVeículos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadVeículos.Designer.cs">
+      <DependentUpon>FrmCadVeículos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCentral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadAdm.resx">
       <DependentUpon>FrmCadAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadVeículos.resx">
+      <DependentUpon>FrmCadVeículos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCentral.resx">
       <DependentUpon>FrmCentral.cs</DependentUpon>

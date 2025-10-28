@@ -168,7 +168,7 @@
             this.BTNsalvar.Name = "BTNsalvar";
             this.BTNsalvar.Size = new System.Drawing.Size(75, 23);
             this.BTNsalvar.TabIndex = 15;
-            this.BTNsalvar.Text = "Salvar";
+            this.BTNsalvar.Text = " ";
             this.BTNsalvar.UseVisualStyleBackColor = true;
             this.BTNsalvar.Click += new System.EventHandler(this.BTNsalvar_Click);
             // 
@@ -179,7 +179,6 @@
             this.dtpADM.Size = new System.Drawing.Size(200, 20);
             this.dtpADM.TabIndex = 16;
             this.dtpADM.Value = new System.DateTime(2025, 10, 7, 0, 0, 0, 0);
-            //this.dtpADM.ValueChanged += new System.EventHandler(this.dtpADM_ValueChanged);
             // 
             // FrmCadAdm
             // 
@@ -204,6 +203,7 @@
             this.Controls.Add(this.lblNomeADM);
             this.Name = "FrmCadAdm";
             this.Text = "FrmCadAdm";
+            this.Load += new System.EventHandler(this.FrmCadAdm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -299,8 +299,12 @@ namespace AluguelCarros
             dtpADM.Value = DateTime.Today;
             txbNomeADM.Focus();
         }
-        
-                }
+
+        private void FrmCadAdm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
 
  

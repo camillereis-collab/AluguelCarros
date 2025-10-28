@@ -219,7 +219,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FrmCad";
-            this.Text = "Cadastro";
+            this.Text = "                      ";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

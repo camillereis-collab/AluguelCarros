@@ -13,7 +13,7 @@ namespace AluguelCarros
 {
     public partial class FrmCadVeículos : Form
     {
-        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ302752X;Integrated Security=True";
+        private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ302752XPR2;User ID=aluno;Password=aluno;TrustServerCertificate=True;";
         public FrmCadVeículos()
         {
             InitializeComponent();
@@ -26,6 +26,23 @@ namespace AluguelCarros
             cmbCombustivel.Items.Add("Gasolina");
             cmbCombustivel.Items.Add("Etanol");
             cmbCombustivel.Items.Add("Híbrido");
+
+            // Categoria (por tamanho/econômico)
+            cmbCategoria.Items.Clear();
+            cmbCategoria.Items.Add("Econômico");
+            cmbCategoria.Items.Add("Compacto");
+            cmbCategoria.Items.Add("Sedan");
+            cmbCategoria.Items.Add("Premium");
+
+            // Cor
+            cmbCor.Items.Clear();
+            cmbCor.Items.Add("Branco");
+            cmbCor.Items.Add("Preto");
+            cmbCor.Items.Add("Prata");
+            cmbCor.Items.Add("Cinza");
+            cmbCor.Items.Add("Vermelho");
+            cmbCor.Items.Add("Azul");
+            cmbCor.Items.Add("Outro");
 
             // Status
             cmbStatus.Items.Clear();
@@ -138,6 +155,22 @@ namespace AluguelCarros
                 return false;
             }
 
+            if (cmbCor.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione a cor do veículo!",
+                    "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbCor.Focus();
+                return false;
+            }
+
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione a categoria do veículo!",
+                    "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbCategoria.Focus();
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(txtValorDiaria.Text))
             {
                 MessageBox.Show("O campo Valor da Diária é obrigatório!",
@@ -195,11 +228,11 @@ namespace AluguelCarros
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                // Cadastra apenas com os campos relevantes para carros de passeio
+                // Cadastra com todos os campos incluindo Cor e Categoria
                 string query = @"INSERT INTO Veiculos 
-                                (Modelo, Marca, Placa, Ano, Combustivel, ValorDiaria, Status) 
+                                (Modelo, Marca, Placa, Ano, Combustivel, Cor, Categoria, ValorDiaria, Status) 
                                 VALUES 
-                                (@Modelo, @Marca, @Placa, @Ano, @Combustivel, @ValorDiaria, @Status)";
+                                (@Modelo, @Marca, @Placa, @Ano, @Combustivel, @Cor, @Categoria, @ValorDiaria, @Status)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Modelo", txtModelo.Text.Trim());
@@ -207,6 +240,8 @@ namespace AluguelCarros
                 cmd.Parameters.AddWithValue("@Placa", txtPlaca.Text.Trim().ToUpper());
                 cmd.Parameters.AddWithValue("@Ano", Convert.ToInt32(txtAno.Text));
                 cmd.Parameters.AddWithValue("@Combustivel", cmbCombustivel.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@Cor", cmbCor.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@Categoria", cmbCategoria.SelectedItem.ToString());
                 cmd.Parameters.AddWithValue("@ValorDiaria", Convert.ToDecimal(txtValorDiaria.Text));
                 cmd.Parameters.AddWithValue("@Status", cmbStatus.SelectedItem.ToString());
 
@@ -228,6 +263,8 @@ namespace AluguelCarros
             txtAno.Clear();
             txtValorDiaria.Clear();
             cmbCombustivel.SelectedIndex = -1;
+            cmbCor.SelectedIndex = -1;
+            cmbCategoria.SelectedIndex = -1;
             cmbStatus.SelectedIndex = 0;
             txtModelo.Focus();
         }
@@ -268,5 +305,4 @@ namespace AluguelCarros
             }
         }
     }
-}                                                                                                                                                                                                                                                                   
-     
+}

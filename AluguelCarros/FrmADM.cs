@@ -74,7 +74,7 @@ namespace AluguelCarros
 
                             // ✅ Abre a tela central e fecha o login
                             this.Hide();
-                            FrmCentral form = new FrmCentral();
+                            FrmCadVeículos form = new FrmCadVeículos();
                             form.ShowDialog();
                             this.Close();
                         }

@@ -76,6 +76,12 @@
     <Compile Include="FrmCentral.Designer.cs">
       <DependentUpon>FrmCentral.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaVeiculos.Designer.cs">
+      <DependentUpon>FrmConsultaVeiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCentral.resx">
       <DependentUpon>FrmCentral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaVeiculos.resx">
+      <DependentUpon>FrmConsultaVeiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

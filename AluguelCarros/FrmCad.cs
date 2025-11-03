@@ -144,7 +144,7 @@ namespace AluguelCarros
                         "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information
                     );
 
-                    FrmCentral product = new FrmCentral();
+                    FrmConsultaVeiculos product = new FrmConsultaVeiculos();
                     this.Visible = false;
                     product.ShowDialog();
                     this.Visible = true;

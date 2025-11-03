@@ -51,7 +51,7 @@ namespace AluguelCarros
                 {
                     MessageBox.Show($"Bem-vindo, {nome}!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    FrmCentral central = new FrmCentral();
+                    FrmConsultaVeiculos central = new FrmConsultaVeiculos();
                     this.Hide();
                     central.ShowDialog();
                     this.Show();

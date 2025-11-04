@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace AluguelCarros
 {
     public partial class FrmConsultaVeiculos : Form
-        {
+    {
         // ALTERE com sua connection string
         private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ302752XPR2;User ID=aluno;Password=aluno;TrustServerCertificate=True;";
 
@@ -202,8 +202,7 @@ namespace AluguelCarros
             MessageBox.Show(detalhes, "Detalhes do Veículo",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void btnAlugar_Click(object sender, EventArgs e)
+            private void btnAlugar_Click(object sender, EventArgs e)
         {
             if (dgvVeiculos.SelectedRows.Count == 0)
             {
@@ -213,23 +212,18 @@ namespace AluguelCarros
             }
 
             DataGridViewRow row = dgvVeiculos.SelectedRows[0];
-            int idVeiculo = Convert.ToInt32(row.Cells["ID"].Value);
+            int ID_Veiculo = Convert.ToInt32(row.Cells["ID"].Value);
             string modelo = row.Cells["Modelo"].Value.ToString();
             string marca = row.Cells["Marca"].Value.ToString();
             decimal valorDiaria = Convert.ToDecimal(row.Cells["Valor Diária (R$)"].Value);
 
-            // Abre o dialog de aluguel
-            FrmDialogAluguel dialogAluguel = new FrmDialogAluguel(idVeiculo, marca, modelo, valorDiaria);
-
-            if (dialogAluguel.ShowDialog() == DialogResult.OK)
-            {
-                // Aluguel foi confirmado, recarrega a lista de veículos
-                MessageBox.Show("Aluguel confirmado! O veículo foi removido da lista de disponíveis.",
-                    "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CarregarVeiculos(); // Atualiza a grade
-            }
+            // Abre o formulário de aluguel e fecha o atual
+            FrmDialogAluguel frmAluguel = new FrmDialogAluguel(ID_Veiculo, marca, modelo, valorDiaria);
+            frmAluguel.Show(); // abre o próximo formulário
+            this.Hide(); // esconde o atual (ou use this.Close() se quiser fechar totalmente)
         }
 
+       
         private void dgvVeiculos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ao dar duplo clique, mostra os detalhes
@@ -248,7 +242,16 @@ namespace AluguelCarros
                 e.Handled = true;
             }
         }
+
+
+
+        private void FrmConsultaVeiculos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+    
     }
 }
 
-    
+

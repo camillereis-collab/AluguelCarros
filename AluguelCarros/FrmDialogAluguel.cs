@@ -15,14 +15,14 @@ namespace AluguelCarros
     {
         private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ302752XPR2;User ID=aluno;Password=aluno;TrustServerCertificate=True;";
 
-        private int idVeiculo;
+        private int ID_Veiculo;
         private decimal valorDiaria;
 
-        public FrmDialogAluguel(int idVeiculo, string marca, string modelo, decimal valorDiaria)
+        public FrmDialogAluguel(int ID_Veiculo, string marca, string modelo, decimal valorDiaria)
         {
             InitializeComponent();
 
-            this.idVeiculo = idVeiculo;
+            this.ID_Veiculo = ID_Veiculo;
             this.valorDiaria = valorDiaria;
 
             // Preenche dados do veículo
@@ -140,7 +140,7 @@ namespace AluguelCarros
 
                     SqlCommand cmdAluguel = new SqlCommand(queryAluguel, conn, transaction);
                     cmdAluguel.Parameters.AddWithValue("@ID_Cliente", UsuarioLogado.ID_Cliente);
-                    cmdAluguel.Parameters.AddWithValue("@ID_Veiculo", idVeiculo);
+                    cmdAluguel.Parameters.AddWithValue("@ID_Veiculo", ID_Veiculo);
                     cmdAluguel.Parameters.AddWithValue("@DataRetirada", dtpRetirada.Value.Date);
                     cmdAluguel.Parameters.AddWithValue("@DataDevolucao", dtpDevolucao.Value.Date);
                     cmdAluguel.Parameters.AddWithValue("@ValorTotal", valorTotal);
@@ -152,7 +152,7 @@ namespace AluguelCarros
                                           WHERE ID_Veiculo = @ID_Veiculo";
 
                     SqlCommand cmdVeiculo = new SqlCommand(queryVeiculo, conn, transaction);
-                    cmdVeiculo.Parameters.AddWithValue("@ID_Veiculo", idVeiculo);
+                    cmdVeiculo.Parameters.AddWithValue("@ID_Veiculo", ID_Veiculo);
                     cmdVeiculo.ExecuteNonQuery();
 
                     // Confirma a transação
@@ -186,6 +186,11 @@ namespace AluguelCarros
         }
 
         private void lblDias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmDialogAluguel_Load(object sender, EventArgs e)
         {
 
         }

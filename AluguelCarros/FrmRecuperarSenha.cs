@@ -7,25 +7,26 @@ using AluguelCarros;
 
 namespace SistemaVeiculos
 {
-    public partial class FrmCad : Form
+    public partial class FrmRecuperarSenha : Form
     {
         private TextBox txtUsuario;
-        private TextBox txtSenha;
-        private TextBox txtConfirmarSenha;
         private TextBox txtEmail;
-        private Button btnCadastrar;
+        private TextBox txtNovaSenha;
+        private TextBox txtConfirmarSenha;
+        private Button btnRecuperar;
         private Button btnVoltar;
         private Label lblTitulo;
+        private Label lblSubtitulo;
         private Label lblUsuario;
-        private Label lblSenha;
-        private Label lblConfirmarSenha;
         private Label lblEmail;
-        private PictureBox pbLogo;
+        private Label lblNovaSenha;
+        private Label lblConfirmarSenha;
+        private PictureBox pbIcone;
         private Panel panelCentral;
 
-        public FrmCad()
+        public FrmRecuperarSenha()
         {
-           
+            InitializeComponent();
             ConfigurarFormulario();
         }
 
@@ -34,8 +35,8 @@ namespace SistemaVeiculos
             this.SuspendLayout();
 
             // Configurações do Form
-            this.ClientSize = new Size(450, 600);
-            this.Text = "Cadastro de Usuário";
+            this.ClientSize = new Size(450, 650);
+            this.Text = "Recuperar Senha";
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -45,38 +46,50 @@ namespace SistemaVeiculos
             panelCentral = new Panel
             {
                 Location = new Point(40, 30),
-                Size = new Size(370, 530),
+                Size = new Size(370, 580),
                 BackColor = Color.White
             };
             this.Controls.Add(panelCentral);
 
-            // PictureBox Logo
-            pbLogo = new PictureBox
+            // PictureBox Ícone
+            pbIcone = new PictureBox
             {
                 Location = new Point(135, 20),
                 Size = new Size(100, 100),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                BackColor = Color.FromArgb(0, 122, 204)
+                BackColor = Color.FromArgb(220, 53, 69)
             };
-            panelCentral.Controls.Add(pbLogo);
+            panelCentral.Controls.Add(pbIcone);
 
             // Label Título
             lblTitulo = new Label
             {
-                Text = "Criar Nova Conta",
+                Text = "Recuperar Senha",
                 Location = new Point(85, 130),
                 Size = new Size(200, 30),
                 Font = new Font("Segoe UI", 16, FontStyle.Bold),
-                ForeColor = Color.FromArgb(0, 122, 204),
+                ForeColor = Color.FromArgb(220, 53, 69),
                 TextAlign = ContentAlignment.MiddleCenter
             };
             panelCentral.Controls.Add(lblTitulo);
+
+            // Label Subtítulo
+            lblSubtitulo = new Label
+            {
+                Text = "Informe seus dados para redefinir a senha",
+                Location = new Point(30, 165),
+                Size = new Size(310, 40),
+                Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                ForeColor = Color.FromArgb(100, 100, 100),
+                TextAlign = ContentAlignment.TopCenter
+            };
+            panelCentral.Controls.Add(lblSubtitulo);
 
             // Label Usuário
             lblUsuario = new Label
             {
                 Text = "Nome de Usuário:",
-                Location = new Point(30, 180),
+                Location = new Point(30, 220),
                 Size = new Size(310, 20),
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.FromArgb(64, 64, 64)
@@ -86,7 +99,7 @@ namespace SistemaVeiculos
             // TextBox Usuário
             txtUsuario = new TextBox
             {
-                Location = new Point(30, 205),
+                Location = new Point(30, 245),
                 Size = new Size(310, 30),
                 Font = new Font("Segoe UI", 11),
                 MaxLength = 50
@@ -96,8 +109,8 @@ namespace SistemaVeiculos
             // Label Email
             lblEmail = new Label
             {
-                Text = "E-mail:",
-                Location = new Point(30, 245),
+                Text = "E-mail Cadastrado:",
+                Location = new Point(30, 285),
                 Size = new Size(310, 20),
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.FromArgb(64, 64, 64)
@@ -107,40 +120,40 @@ namespace SistemaVeiculos
             // TextBox Email
             txtEmail = new TextBox
             {
-                Location = new Point(30, 270),
+                Location = new Point(30, 310),
                 Size = new Size(310, 30),
                 Font = new Font("Segoe UI", 11),
                 MaxLength = 100
             };
             panelCentral.Controls.Add(txtEmail);
 
-            // Label Senha
-            lblSenha = new Label
+            // Label Nova Senha
+            lblNovaSenha = new Label
             {
-                Text = "Senha:",
-                Location = new Point(30, 310),
+                Text = "Nova Senha:",
+                Location = new Point(30, 350),
                 Size = new Size(310, 20),
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.FromArgb(64, 64, 64)
             };
-            panelCentral.Controls.Add(lblSenha);
+            panelCentral.Controls.Add(lblNovaSenha);
 
-            // TextBox Senha
-            txtSenha = new TextBox
+            // TextBox Nova Senha
+            txtNovaSenha = new TextBox
             {
-                Location = new Point(30, 335),
+                Location = new Point(30, 375),
                 Size = new Size(310, 30),
                 Font = new Font("Segoe UI", 11),
                 PasswordChar = '●',
                 MaxLength = 100
             };
-            panelCentral.Controls.Add(txtSenha);
+            panelCentral.Controls.Add(txtNovaSenha);
 
             // Label Confirmar Senha
             lblConfirmarSenha = new Label
             {
-                Text = "Confirmar Senha:",
-                Location = new Point(30, 375),
+                Text = "Confirmar Nova Senha:",
+                Location = new Point(30, 415),
                 Size = new Size(310, 20),
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 ForeColor = Color.FromArgb(64, 64, 64)
@@ -150,7 +163,7 @@ namespace SistemaVeiculos
             // TextBox Confirmar Senha
             txtConfirmarSenha = new TextBox
             {
-                Location = new Point(30, 400),
+                Location = new Point(30, 440),
                 Size = new Size(310, 30),
                 Font = new Font("Segoe UI", 11),
                 PasswordChar = '●',
@@ -158,31 +171,31 @@ namespace SistemaVeiculos
             };
             panelCentral.Controls.Add(txtConfirmarSenha);
 
-            // Botão Cadastrar
-            btnCadastrar = new Button
+            // Botão Recuperar
+            btnRecuperar = new Button
             {
-                Text = "CADASTRAR",
-                Location = new Point(30, 450),
+                Text = "REDEFINIR SENHA",
+                Location = new Point(30, 490),
                 Size = new Size(310, 40),
                 Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                BackColor = Color.FromArgb(0, 122, 204),
+                BackColor = Color.FromArgb(220, 53, 69),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
-            btnCadastrar.FlatAppearance.BorderSize = 0;
-            btnCadastrar.Click += BtnCadastrar_Click;
-            panelCentral.Controls.Add(btnCadastrar);
+            btnRecuperar.FlatAppearance.BorderSize = 0;
+            btnRecuperar.Click += BtnRecuperar_Click;
+            panelCentral.Controls.Add(btnRecuperar);
 
             // Botão Voltar
             btnVoltar = new Button
             {
                 Text = "Voltar ao Login",
-                Location = new Point(105, 495),
+                Location = new Point(105, 535),
                 Size = new Size(160, 30),
                 Font = new Font("Segoe UI", 9, FontStyle.Regular),
                 BackColor = Color.Transparent,
-                ForeColor = Color.FromArgb(0, 122, 204),
+                ForeColor = Color.FromArgb(220, 53, 69),
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
@@ -198,15 +211,15 @@ namespace SistemaVeiculos
             // Adicionar evento KeyPress para Enter
             txtUsuario.KeyPress += Txt_KeyPress;
             txtEmail.KeyPress += Txt_KeyPress;
-            txtSenha.KeyPress += Txt_KeyPress;
+            txtNovaSenha.KeyPress += Txt_KeyPress;
             txtConfirmarSenha.KeyPress += Txt_KeyPress;
 
             // Efeitos hover nos botões
-            btnCadastrar.MouseEnter += (s, e) => btnCadastrar.BackColor = Color.FromArgb(0, 102, 184);
-            btnCadastrar.MouseLeave += (s, e) => btnCadastrar.BackColor = Color.FromArgb(0, 122, 204);
+            btnRecuperar.MouseEnter += (s, e) => btnRecuperar.BackColor = Color.FromArgb(200, 35, 51);
+            btnRecuperar.MouseLeave += (s, e) => btnRecuperar.BackColor = Color.FromArgb(220, 53, 69);
 
-            btnVoltar.MouseEnter += (s, e) => btnVoltar.ForeColor = Color.FromArgb(0, 102, 184);
-            btnVoltar.MouseLeave += (s, e) => btnVoltar.ForeColor = Color.FromArgb(0, 122, 204);
+            btnVoltar.MouseEnter += (s, e) => btnVoltar.ForeColor = Color.FromArgb(200, 35, 51);
+            btnVoltar.MouseLeave += (s, e) => btnVoltar.ForeColor = Color.FromArgb(220, 53, 69);
         }
 
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
@@ -214,11 +227,11 @@ namespace SistemaVeiculos
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                BtnCadastrar_Click(sender, e);
+                BtnRecuperar_Click(sender, e);
             }
         }
 
-        private void BtnCadastrar_Click(object sender, EventArgs e)
+        private void BtnRecuperar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -239,31 +252,23 @@ namespace SistemaVeiculos
                     return;
                 }
 
-                if (!ValidarEmail(txtEmail.Text))
+                if (string.IsNullOrWhiteSpace(txtNovaSenha.Text))
                 {
-                    MessageBox.Show("Por favor, informe um e-mail válido.",
-                        "E-mail Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtEmail.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtSenha.Text))
-                {
-                    MessageBox.Show("Por favor, informe a senha.",
+                    MessageBox.Show("Por favor, informe a nova senha.",
                         "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtSenha.Focus();
+                    txtNovaSenha.Focus();
                     return;
                 }
 
-                if (txtSenha.Text.Length < 6)
+                if (txtNovaSenha.Text.Length < 6)
                 {
                     MessageBox.Show("A senha deve ter no mínimo 6 caracteres.",
                         "Senha Fraca", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtSenha.Focus();
+                    txtNovaSenha.Focus();
                     return;
                 }
 
-                if (txtSenha.Text != txtConfirmarSenha.Text)
+                if (txtNovaSenha.Text != txtConfirmarSenha.Text)
                 {
                     MessageBox.Show("As senhas não coincidem.",
                         "Erro de Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -271,91 +276,57 @@ namespace SistemaVeiculos
                     return;
                 }
 
-                // Verificar se usuário já existe
-                if (UsuarioExiste(txtUsuario.Text))
+                // Verificar se usuário e e-mail correspondem
+                if (!VerificarUsuarioEmail())
                 {
-                    MessageBox.Show("Este nome de usuário já está em uso.",
-                        "Usuário Existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtUsuario.Focus();
+                    MessageBox.Show("Usuário e e-mail não correspondem aos dados cadastrados.",
+                        "Dados Incorretos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Verificar se e-mail já existe
-                if (EmailExiste(txtEmail.Text))
-                {
-                    MessageBox.Show("Este e-mail já está cadastrado.",
-                        "E-mail Existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtEmail.Focus();
-                    return;
-                }
-
-                // Cadastrar usuário
-                CadastrarUsuario();
+                // Redefinir senha
+                RedefinirSenha();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao cadastrar usuário: {ex.Message}",
+                MessageBox.Show($"Erro ao recuperar senha: {ex.Message}",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private bool ValidarEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email && email.Contains("@") && email.Contains(".");
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private bool UsuarioExiste(string usuario)
+        private bool VerificarUsuarioEmail()
         {
             using (SqlConnection conn = Utilitarios.ObterConexao())
             {
-                string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Usuario", usuario);
-
-                int count = (int)cmd.ExecuteScalar();
-                return count > 0;
-            }
-        }
-
-        private bool EmailExiste(string email)
-        {
-            using (SqlConnection conn = Utilitarios.ObterConexao())
-            {
-                string query = "SELECT COUNT(*) FROM Usuarios WHERE Email = @Email";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", email);
-
-                int count = (int)cmd.ExecuteScalar();
-                return count > 0;
-            }
-        }
-
-        private void CadastrarUsuario()
-        {
-            using (SqlConnection conn = Utilitarios.ObterConexao())
-            {
-                string query = @"INSERT INTO Usuarios (Usuario, Senha, Email, TipoUsuario, DataCriacao) 
-                                VALUES (@Usuario, @Senha, @Email, 'Usuario', GETDATE())";
-
+                string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Email = @Email";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text.Trim());
-                cmd.Parameters.AddWithValue("@Senha", Utilitarios.CriptografarSenha(txtSenha.Text));
+                cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
+
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
+        private void RedefinirSenha()
+        {
+            using (SqlConnection conn = Utilitarios.ObterConexao())
+            {
+                string query = @"UPDATE Usuarios 
+                                SET Senha = @NovaSenha 
+                                WHERE Usuario = @Usuario AND Email = @Email";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NovaSenha", Utilitarios.CriptografarSenha(txtNovaSenha.Text));
+                cmd.Parameters.AddWithValue("@Usuario", txtUsuario.Text.Trim());
                 cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
 
                 int result = cmd.ExecuteNonQuery();
 
                 if (result > 0)
                 {
-                    MessageBox.Show("Usuário cadastrado com sucesso!\n\nVocê já pode fazer login.",
-                        "Cadastro Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Senha redefinida com sucesso!\n\nVocê já pode fazer login com a nova senha.",
+                        "Senha Alterada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Voltar para o login
                     FrmLogin frmLogin = new FrmLogin();
@@ -364,7 +335,7 @@ namespace SistemaVeiculos
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao cadastrar usuário. Tente novamente.",
+                    MessageBox.Show("Erro ao redefinir senha. Tente novamente.",
                         "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

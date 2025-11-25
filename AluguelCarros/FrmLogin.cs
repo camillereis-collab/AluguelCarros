@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AluguelCarros
@@ -18,80 +11,239 @@ namespace AluguelCarros
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
-            
+            // Verificar se há credenciais salvas
+            CarregarCredenciaisSalvas();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Botão de Login
+        /// </summary>
+        private void btnEntrar_Click(object sender, EventArgs e)
         {
+            string email = txbEmail.Text.Trim();
+            string senha = txbSenha.Text;
 
-        }
-
-        private void bntEntrar_Click(object sender, EventArgs e)
-        {
-            string nome = txbName.Text;
-            string email = txbEma.Text;
-            string senha = txbSen.Text;
-
-            string sql = "SELECT COUNT(*) FROM Clientes WHERE Nome = @Nome AND Email = @Email AND Senha = @Senha";
-            string conexao = @"Server=sqlexpress;Database=CJ302752XPR2;User Id=aluno;Password=aluno";
-
-            using (SqlConnection conn = new SqlConnection(conexao))
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            // Validações básicas
+            if (string.IsNullOrWhiteSpace(email))
             {
-                cmd.Parameters.AddWithValue("@Nome", nome);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Senha", senha);
+                MessageBox.Show("Por favor, informe o email!",
+                    "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbEmail.Focus();
+                return;
+            }
 
-                conn.Open();
-                int count = (int)cmd.ExecuteScalar();
+            if (string.IsNullOrWhiteSpace(senha))
+            {
+                MessageBox.Show("Por favor, informe a senha!",
+                    "Campo Obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbSenha.Focus();
+                return;
+            }
 
-                if (count > 0)
+            // Validar formato de email
+            if (!Utilitarios.ValidarEmail(email))
+            {
+                MessageBox.Show("Por favor, informe um email válido!",
+                    "Email Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbEmail.Focus();
+                return;
+            }
+
+            // Realizar login
+            RealizarLogin(email, senha);
+        }
+
+        /// <summary>
+        /// Realiza o login verificando email e senha no banco
+        /// </summary>
+        private void RealizarLogin(string email, string senha)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Utilitarios.ConnectionString))
                 {
-                    MessageBox.Show($"Bem-vindo, {nome}!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Open();
 
-                    FrmConsultaVeiculos central = new FrmConsultaVeiculos();
-                    this.Hide();
-                    central.ShowDialog();
-                    this.Show();
+                    // Criptografa a senha para comparar com o banco
+                    string senhaHash = Utilitarios.CriptografarSenha(senha);
+
+                    string query = @"SELECT ID_Usuario, Nome, Email, TipoUsuario, CPF, CNH, Telefone, Status 
+                                    FROM Usuarios 
+                                    WHERE Email = @Email AND Senha = @Senha";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Email", email.ToLower());
+                        cmd.Parameters.AddWithValue("@Senha", senhaHash);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Verificar status do usuário
+                                string status = reader["Status"].ToString();
+
+                                if (status == "Inativo" || status == "Bloqueado")
+                                {
+                                    MessageBox.Show("Sua conta está " + status.ToLower() + ". Entre em contato com o suporte.",
+                                        "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+
+                                // Preencher dados do usuário logado
+                                UsuarioLogado.ID_Usuario = Convert.ToInt32(reader["ID_Usuario"]);
+                                UsuarioLogado.Nome = reader["Nome"].ToString();
+                                UsuarioLogado.Email = reader["Email"].ToString();
+                                UsuarioLogado.TipoUsuario = reader["TipoUsuario"].ToString();
+                                UsuarioLogado.CPF = reader["CPF"].ToString();
+                                UsuarioLogado.CNH = reader["CNH"] != DBNull.Value ? reader["CNH"].ToString() : "";
+                                UsuarioLogado.Telefone = reader["Telefone"].ToString();
+
+                                // Salvar credenciais se checkbox marcado
+                                if (chkLembrarSenha.Checked)
+                                {
+                                    SalvarCredenciais(email, senha);
+                                }
+                                else
+                                {
+                                    LimparCredenciaisSalvas();
+                                }
+
+                                // Redirecionar baseado no tipo de usuário
+                                RedirecionarUsuario();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email ou senha incorretos!",
+                                    "Erro de Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txbSenha.Clear();
+                                txbSenha.Focus();
+                            }
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Usuário, e-mail ou senha inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao realizar login: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txbConSen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Redireciona o usuário para a tela apropriada baseado no tipo
+        /// </summary>
+        private void RedirecionarUsuario()
         {
             this.Hide();
-            FrmInicial telaAnterior = new FrmInicial();
-            telaAnterior.Show();
+
+            if (UsuarioLogado.TipoUsuario == "Cliente")
+            {
+                // Cliente vai para consulta de veículos
+                MessageBox.Show($"Bem-vindo(a), {UsuarioLogado.Nome}!",
+                    "Login Realizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FrmConsultaVeiculos frmConsulta = new FrmConsultaVeiculos();
+                frmConsulta.ShowDialog();
+            }
+            else if (UsuarioLogado.IsAdministrador())
+            {
+                // Administrador vai para cadastro de veículos
+                MessageBox.Show($"Bem-vindo(a), {UsuarioLogado.Nome}!\n\nÁrea Administrativa",
+                    "Login Administrativo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FrmCadVeículos frmCadVeiculos = new FrmCadVeículos();
+                frmCadVeiculos.ShowDialog();
+            }
+
+            // Limpar sessão ao fechar
+            UsuarioLogado.Limpar();
+            this.Close();
         }
 
-        private void PtbLogin_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Salva credenciais em Properties.Settings
+        /// </summary>
+        private void SalvarCredenciais(string email, string senha)
         {
-
+            Properties.Settings.Default.EmailSalvo = email;
+            Properties.Settings.Default.SenhaSalva = Utilitarios.CriptografarSenha(senha);
+            Properties.Settings.Default.LembrarSenha = true;
+            Properties.Settings.Default.Save();
         }
 
-        private void btnAqui_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Carrega credenciais salvas
+        /// </summary>
+        private void CarregarCredenciaisSalvas()
         {
-            FrmCad product = new FrmCad();
-            this.Visible = false;
-            product.ShowDialog();
-            this.Visible = true;
+            if (Properties.Settings.Default.LembrarSenha)
+            {
+                txbEmail.Text = Properties.Settings.Default.EmailSalvo;
+                chkLembrarSenha.Checked = true;
+                txbSenha.Focus();
+            }
+        }
+
+        /// <summary>
+        /// Limpa credenciais salvas
+        /// </summary>
+        private void LimparCredenciaisSalvas()
+        {
+            Properties.Settings.Default.EmailSalvo = "";
+            Properties.Settings.Default.SenhaSalva = "";
+            Properties.Settings.Default.LembrarSenha = false;
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// Botão para cadastro (apenas clientes)
+        /// </summary>
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCad frmCadastro = new FrmCad();
+            frmCadastro.ShowDialog();
+            this.Show();
+        }
+
+        /// <summary>
+        /// Link para recuperação de senha
+        /// </summary>
+        private void lnkEsqueciSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRecuperarSenha frmRecuperar = new FrmRecuperarSenha();
+            frmRecuperar.ShowDialog();
+        }
+
+        /// <summary>
+        /// Checkbox para mostrar/ocultar senha
+        /// </summary>
+        private void chkMostrarSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            txbSenha.UseSystemPasswordChar = !chkMostrarSenha.Checked;
+        }
+
+        /// <summary>
+        /// Botão Voltar
+        /// </summary>
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Enter no campo de senha realiza login
+        /// </summary>
+        private void txbSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnEntrar_Click(sender, e);
+                e.Handled = true;
+            }
         }
     }
 }

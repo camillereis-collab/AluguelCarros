@@ -2,15 +2,8 @@
 {
     partial class FrmLogin
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,189 +15,215 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.lblNome = new System.Windows.Forms.Label();
-            this.lblEma = new System.Windows.Forms.Label();
-            this.lblSen = new System.Windows.Forms.Label();
-            this.lblConSen = new System.Windows.Forms.Label();
-            this.txbName = new System.Windows.Forms.TextBox();
-            this.txbEma = new System.Windows.Forms.TextBox();
-            this.txbSen = new System.Windows.Forms.TextBox();
-            this.txbConSen = new System.Windows.Forms.TextBox();
-            this.bntEntrar = new System.Windows.Forms.Button();
-            this.btnAqui = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.txbEmail = new System.Windows.Forms.TextBox();
+            this.txbSenha = new System.Windows.Forms.TextBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.PtbLogin = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLogin)).BeginInit();
+            this.chkMostrarSenha = new System.Windows.Forms.CheckBox();
+            this.chkLembrarSenha = new System.Windows.Forms.CheckBox();
+            this.lnkEsqueciSenha = new System.Windows.Forms.LinkLabel();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.lblSubtitulo = new System.Windows.Forms.Label();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblNome
+            // lblTitulo
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(187, 141);
-            this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(53, 18);
-            this.lblNome.TabIndex = 1;
-            this.lblNome.Text = "Nome ";
+            this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(450, 50);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Sistema de Aluguel de Carros";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEma
+            // lblSubtitulo
             // 
-            this.lblEma.AutoSize = true;
-            this.lblEma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEma.Location = new System.Drawing.Point(187, 206);
-            this.lblEma.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEma.Name = "lblEma";
-            this.lblEma.Size = new System.Drawing.Size(45, 18);
-            this.lblEma.TabIndex = 2;
-            this.lblEma.Text = "Email";
+            this.lblSubtitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSubtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.lblSubtitulo.Location = new System.Drawing.Point(0, 50);
+            this.lblSubtitulo.Name = "lblSubtitulo";
+            this.lblSubtitulo.Size = new System.Drawing.Size(450, 30);
+            this.lblSubtitulo.TabIndex = 1;
+            this.lblSubtitulo.Text = "Faça login para continuar";
+            this.lblSubtitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblSen
+            // lblEmail
             // 
-            this.lblSen.AutoSize = true;
-            this.lblSen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSen.Location = new System.Drawing.Point(187, 282);
-            this.lblSen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSen.Name = "lblSen";
-            this.lblSen.Size = new System.Drawing.Size(50, 18);
-            this.lblSen.TabIndex = 3;
-            this.lblSen.Text = "Senha";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.Location = new System.Drawing.Point(30, 110);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(45, 15);
+            this.lblEmail.TabIndex = 2;
+            this.lblEmail.Text = "Email:";
             // 
-            // lblConSen
+            // txbEmail
             // 
-            this.lblConSen.AutoSize = true;
-            this.lblConSen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConSen.Location = new System.Drawing.Point(398, 282);
-            this.lblConSen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblConSen.Name = "lblConSen";
-            this.lblConSen.Size = new System.Drawing.Size(120, 18);
-            this.lblConSen.TabIndex = 4;
-            this.lblConSen.Text = "Confirmar Senha";
-            this.lblConSen.Click += new System.EventHandler(this.label1_Click);
+            this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txbEmail.Location = new System.Drawing.Point(30, 130);
+            this.txbEmail.Name = "txbEmail";
+            this.txbEmail.Size = new System.Drawing.Size(390, 23);
+            this.txbEmail.TabIndex = 0;
             // 
-            // txbName
+            // lblSenha
             // 
-            this.txbName.Location = new System.Drawing.Point(261, 141);
-            this.txbName.Margin = new System.Windows.Forms.Padding(2);
-            this.txbName.Name = "txbName";
-            this.txbName.Size = new System.Drawing.Size(150, 20);
-            this.txbName.TabIndex = 5;
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblSenha.Location = new System.Drawing.Point(30, 170);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(50, 15);
+            this.lblSenha.TabIndex = 3;
+            this.lblSenha.Text = "Senha:";
             // 
-            // txbEma
+            // txbSenha
             // 
-            this.txbEma.Location = new System.Drawing.Point(261, 208);
-            this.txbEma.Margin = new System.Windows.Forms.Padding(2);
-            this.txbEma.Name = "txbEma";
-            this.txbEma.Size = new System.Drawing.Size(150, 20);
-            this.txbEma.TabIndex = 6;
+            this.txbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txbSenha.Location = new System.Drawing.Point(30, 190);
+            this.txbSenha.Name = "txbSenha";
+            this.txbSenha.Size = new System.Drawing.Size(390, 23);
+            this.txbSenha.TabIndex = 1;
+            this.txbSenha.UseSystemPasswordChar = true;
+            this.txbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSenha_KeyPress);
             // 
-            // txbSen
+            // chkMostrarSenha
             // 
-            this.txbSen.Location = new System.Drawing.Point(261, 282);
-            this.txbSen.Margin = new System.Windows.Forms.Padding(2);
-            this.txbSen.Name = "txbSen";
-            this.txbSen.Size = new System.Drawing.Size(114, 20);
-            this.txbSen.TabIndex = 7;
+            this.chkMostrarSenha.AutoSize = true;
+            this.chkMostrarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.chkMostrarSenha.Location = new System.Drawing.Point(30, 225);
+            this.chkMostrarSenha.Name = "chkMostrarSenha";
+            this.chkMostrarSenha.Size = new System.Drawing.Size(102, 17);
+            this.chkMostrarSenha.TabIndex = 2;
+            this.chkMostrarSenha.Text = "Mostrar senha";
+            this.chkMostrarSenha.UseVisualStyleBackColor = true;
+            this.chkMostrarSenha.CheckedChanged += new System.EventHandler(this.chkMostrarSenha_CheckedChanged);
             // 
-            // txbConSen
+            // chkLembrarSenha
             // 
-            this.txbConSen.Location = new System.Drawing.Point(531, 284);
-            this.txbConSen.Margin = new System.Windows.Forms.Padding(2);
-            this.txbConSen.Name = "txbConSen";
-            this.txbConSen.Size = new System.Drawing.Size(127, 20);
-            this.txbConSen.TabIndex = 8;
-            this.txbConSen.TextChanged += new System.EventHandler(this.txbConSen_TextChanged);
+            this.chkLembrarSenha.AutoSize = true;
+            this.chkLembrarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.chkLembrarSenha.Location = new System.Drawing.Point(30, 250);
+            this.chkLembrarSenha.Name = "chkLembrarSenha";
+            this.chkLembrarSenha.Size = new System.Drawing.Size(112, 17);
+            this.chkLembrarSenha.TabIndex = 3;
+            this.chkLembrarSenha.Text = "Lembrar senha";
+            this.chkLembrarSenha.UseVisualStyleBackColor = true;
             // 
-            // bntEntrar
+            // lnkEsqueciSenha
             // 
-            this.bntEntrar.Location = new System.Drawing.Point(585, 375);
-            this.bntEntrar.Margin = new System.Windows.Forms.Padding(2);
-            this.bntEntrar.Name = "bntEntrar";
-            this.bntEntrar.Size = new System.Drawing.Size(56, 19);
-            this.bntEntrar.TabIndex = 9;
-            this.bntEntrar.Text = "Entrar";
-            this.bntEntrar.UseVisualStyleBackColor = true;
-            this.bntEntrar.Click += new System.EventHandler(this.bntEntrar_Click);
+            this.lnkEsqueciSenha.AutoSize = true;
+            this.lnkEsqueciSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lnkEsqueciSenha.Location = new System.Drawing.Point(315, 251);
+            this.lnkEsqueciSenha.Name = "lnkEsqueciSenha";
+            this.lnkEsqueciSenha.Size = new System.Drawing.Size(105, 13);
+            this.lnkEsqueciSenha.TabIndex = 4;
+            this.lnkEsqueciSenha.TabStop = true;
+            this.lnkEsqueciSenha.Text = "Esqueci minha senha";
+            this.lnkEsqueciSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEsqueciSenha_LinkClicked);
             // 
-            // btnAqui
+            // btnEntrar
             // 
-            this.btnAqui.Location = new System.Drawing.Point(376, 384);
-            this.btnAqui.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAqui.Name = "btnAqui";
-            this.btnAqui.Size = new System.Drawing.Size(48, 19);
-            this.btnAqui.TabIndex = 10;
-            this.btnAqui.Text = "AQUI";
-            this.btnAqui.UseVisualStyleBackColor = true;
-            this.btnAqui.Click += new System.EventHandler(this.btnAqui_Click);
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEntrar.ForeColor = System.Drawing.Color.White;
+            this.btnEntrar.Location = new System.Drawing.Point(30, 300);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(390, 40);
+            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.Text = "ENTRAR";
+            this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrar.Location = new System.Drawing.Point(30, 360);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(390, 35);
+            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.Text = "Não tem cadastro? Cadastre-se aqui";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(86, 375);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnVoltar.ForeColor = System.Drawing.Color.White;
+            this.btnVoltar.Location = new System.Drawing.Point(30, 410);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(56, 19);
-            this.btnVoltar.TabIndex = 11;
+            this.btnVoltar.Size = new System.Drawing.Size(390, 30);
+            this.btnVoltar.TabIndex = 7;
             this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // PtbLogin
+            // panelMain
             // 
-            this.PtbLogin.Image = ((System.Drawing.Image)(resources.GetObject("PtbLogin.Image")));
-            this.PtbLogin.Location = new System.Drawing.Point(-13, -6);
-            this.PtbLogin.Margin = new System.Windows.Forms.Padding(2);
-            this.PtbLogin.Name = "PtbLogin";
-            this.PtbLogin.Size = new System.Drawing.Size(724, 445);
-            this.PtbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PtbLogin.TabIndex = 12;
-            this.PtbLogin.TabStop = false;
-            this.PtbLogin.Click += new System.EventHandler(this.PtbLogin_Click);
+            this.panelMain.Controls.Add(this.lblTitulo);
+            this.panelMain.Controls.Add(this.lblSubtitulo);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(450, 500);
+            this.panelMain.TabIndex = 8;
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 427);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(450, 500);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.btnAqui);
-            this.Controls.Add(this.bntEntrar);
-            this.Controls.Add(this.txbConSen);
-            this.Controls.Add(this.txbSen);
-            this.Controls.Add(this.txbEma);
-            this.Controls.Add(this.txbName);
-            this.Controls.Add(this.lblConSen);
-            this.Controls.Add(this.lblSen);
-            this.Controls.Add(this.lblEma);
-            this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.PtbLogin);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.lnkEsqueciSenha);
+            this.Controls.Add(this.chkLembrarSenha);
+            this.Controls.Add(this.chkMostrarSenha);
+            this.Controls.Add(this.txbSenha);
+            this.Controls.Add(this.lblSenha);
+            this.Controls.Add(this.txbEmail);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.panelMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmLogin";
-            this.Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLogin)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login - Sistema de Aluguel de Carros";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
-        private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label lblEma;
-        private System.Windows.Forms.Label lblSen;
-        private System.Windows.Forms.Label lblConSen;
-        private System.Windows.Forms.TextBox txbName;
-        private System.Windows.Forms.TextBox txbEma;
-        private System.Windows.Forms.TextBox txbSen;
-        private System.Windows.Forms.TextBox txbConSen;
-        private System.Windows.Forms.Button bntEntrar;
-        private System.Windows.Forms.Button btnAqui;
+
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblSubtitulo;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txbEmail;
+        private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.TextBox txbSenha;
+        private System.Windows.Forms.CheckBox chkMostrarSenha;
+        private System.Windows.Forms.CheckBox chkLembrarSenha;
+        private System.Windows.Forms.LinkLabel lnkEsqueciSenha;
+        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.PictureBox PtbLogin;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

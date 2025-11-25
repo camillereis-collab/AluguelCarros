@@ -14,10 +14,196 @@ namespace AluguelCarros
     public partial class FrmCadVeículos : Form
     {
         private string connectionString = "Data Source=sqlexpress;Initial Catalog=CJ302752XPR2;User ID=aluno;Password=aluno;TrustServerCertificate=True;";
+        private MenuStrip menuPrincipal;
+        private ToolStripMenuItem menuAdmin;
+        private ToolStripMenuItem menuUsuarios;
+        private ToolStripMenuItem menuSair;
+        private Label lblUsuarioLogado;
         public FrmCadVeículos()
         {
             InitializeComponent();
+            }
+        private void CriarMenuAdmin()
+        {
+            // MenuStrip
+            menuPrincipal = new MenuStrip
+            {
+                BackColor = Color.FromArgb(0, 122, 204),
+                Font = new Font("Segoe UI", 10, FontStyle.Regular)
+            };
+
+            // Menu Administração (só aparece para admins)
+            menuAdmin = new ToolStripMenuItem
+            {
+                Text = "Administração",
+                ForeColor = Color.White,
+                Visible = Usuarioconectado.EhAdministrador()
+            };
+
+            // Submenu Gerenciar Usuários
+            menuUsuarios = new ToolStripMenuItem
+            {
+                Text = "Gerenciar Usuários",
+                Image = null // Você pode adicionar um ícone aqui
+            };
+            menuUsuarios.Click += MenuUsuarios_Click;
+            menuAdmin.DropDownItems.Add(menuUsuarios);
+
+            // Menu Sair
+            menuSair = new ToolStripMenuItem
+            {
+                Text = "Sair",
+                ForeColor = Color.White
+            };
+            menuSair.Click += MenuSair_Click;
+
+            // Adicionar menus ao MenuStrip
+            menuPrincipal.Items.Add(menuAdmin);
+            menuPrincipal.Items.Add(menuSair);
+
+            // Label do usuário logado (à direita)
+            lblUsuarioLogado = new Label
+            {
+                Text = $"👤 {UsuarioLogado.Nome}",
+                AutoSize = true,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                Padding = new Padding(0, 3, 10, 0)
+            };
+
+            ToolStripControlHost labelHost = new ToolStripControlHost(lblUsuarioLogado)
+            {
+                Alignment = ToolStripItemAlignment.Right
+            };
+            menuPrincipal.Items.Add(labelHost);
+
+            // Adicionar MenuStrip ao formulário
+            this.MainMenuStrip = menuPrincipal;
+            this.Controls.Add(menuPrincipal);
+
+            // Ajustar posição dos outros controles (se necessário)
+            // Todos os controles devem ficar abaixo do menu
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl != menuPrincipal)
+                {
+                    ctrl.Location = new Point(ctrl.Location.X, ctrl.Location.Y + menuPrincipal.Height);
+                }
+            }
         }
+
+        // 3. Adicione estes métodos de evento:
+        private void MenuUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarAdministradores frmGerenciar = new FrmGerenciarAdministradores();
+            frmGerenciar.ShowDialog();
+        }
+
+        private void MenuSair_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar Saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                // Limpar dados do usuário logado
+                UsuarioLogado.Id = 0;
+                UsuarioLogado.Nome = null;
+                UsuarioLogado.Email = null;
+                UsuarioLogado.TipoUsuario = null;
+
+                // Voltar para o login
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.Show();
+                this.Close();
+            }
+        }
+
+        // 4. No construtor do FrmCadVeiculos, adicione após InitializeComponent():
+        public FrmCadVeiculos()
+        {
+            InitializeComponent();
+            CriarMenuAdmin(); // ADICIONE ESTA LINHA
+                              // ... resto do código do construtor
+        }
+
+        // 5. IMPORTANTE: Ajuste o tamanho do formulário para acomodar o menu
+        // No InitializeComponent() do seu FrmCadVeiculos, ajuste o ClientSize:
+        // this.ClientSize = new Size(larguraAtual, alturaAtual + 24); // +24 para o menu
+
+        // ===================================================================
+        // ALTERNATIVA MAIS SIMPLES - SE PREFERIR UM PAINEL NO TOPO
+        // ===================================================================
+
+        private void CriarBarraSuperior()
+        {
+            // Painel Superior
+            Panel panelTopo = new Panel
+            {
+                Location = new Point(0, 0),
+                Size = new Size(this.ClientSize.Width, 50),
+                BackColor = Color.FromArgb(0, 122, 204),
+                Dock = DockStyle.Top
+            };
+
+            // Label Usuário
+            Label lblUsuario = new Label
+            {
+                Text = $"👤 Usuário: {UsuarioLogado.Nome}",
+                Location = new Point(20, 15),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                ForeColor = Color.White
+            };
+            panelTopo.Controls.Add(lblUsuario);
+
+            // Botão Admin (só aparece para administradores)
+            if (UsuarioLogado.EhAdministrador)
+            {
+                Button btnAdmin = new Button
+                {
+                    Text = "⚙ Gerenciar Usuários",
+                    Location = new Point(this.ClientSize.Width - 220, 10),
+                    Size = new Size(180, 30),
+                    Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                    BackColor = Color.FromArgb(255, 193, 7),
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Cursor = Cursors.Hand
+                };
+                btnAdmin.FlatAppearance.BorderSize = 0;
+                btnAdmin.Click += (s, e) =>
+                {
+                    FrmGerenciarAdministradores frmGerenciar = new FrmGerenciarAdministradores();
+                    frmGerenciar.ShowDialog();
+                };
+                panelTopo.Controls.Add(btnAdmin);
+            }
+
+            // Botão Sair
+            Button btnSair = new Button
+            {
+                Text = "🚪 Sair",
+                Location = new Point(this.ClientSize.Width - 100, 10),
+                Size = new Size(80, 30),
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                BackColor = Color.FromArgb(220, 53, 69),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
+            };
+            btnSair.FlatAppearance.BorderSize = 0;
+            btnSair.Click += MenuSair_Click;
+            panelTopo.Controls.Add(btnSair);
+
+            this.Controls.Add(panelTopo);
+        }
+
+        // Use CriarBarraSuperior() no lugar de CriarMenuAdmin() se preferir esta abordagem
 
         private void FrmCadVeículos_Load(object sender, EventArgs e)
         {
@@ -303,6 +489,11 @@ namespace AluguelCarros
             {
                 e.Handled = true;
             }
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace AluguelCarros
+﻿namespace SistemaVeiculos
 {
     partial class FrmCad
     {
@@ -195,6 +195,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // FrmCad
             // 
@@ -236,8 +237,7 @@
         private System.Windows.Forms.TextBox txbCpf;
         private System.Windows.Forms.TextBox txbTelefone;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblSenha;
+       
         private System.Windows.Forms.Label lblConfirmarsenha;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.TextBox txbsenha;

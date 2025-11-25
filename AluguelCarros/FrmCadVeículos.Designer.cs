@@ -62,7 +62,7 @@
             this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.Location = new System.Drawing.Point(120, 50);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(200, 24);
+            this.txtModelo.Size = new System.Drawing.Size(200, 21);
             this.txtModelo.TabIndex = 0;
             // 
             // txtMarca
@@ -70,7 +70,7 @@
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(120, 90);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(200, 24);
+            this.txtMarca.Size = new System.Drawing.Size(200, 21);
             this.txtMarca.TabIndex = 1;
             // 
             // txtPlaca
@@ -78,7 +78,7 @@
             this.txtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlaca.Location = new System.Drawing.Point(120, 130);
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(200, 24);
+            this.txtPlaca.Size = new System.Drawing.Size(200, 21);
             this.txtPlaca.TabIndex = 2;
             // 
             // txtValorDiaria
@@ -86,7 +86,7 @@
             this.txtValorDiaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorDiaria.Location = new System.Drawing.Point(120, 250);
             this.txtValorDiaria.Name = "txtValorDiaria";
-            this.txtValorDiaria.Size = new System.Drawing.Size(200, 24);
+            this.txtValorDiaria.Size = new System.Drawing.Size(200, 21);
             this.txtValorDiaria.TabIndex = 3;
             // 
             // txtAno
@@ -94,7 +94,7 @@
             this.txtAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAno.Location = new System.Drawing.Point(120, 170);
             this.txtAno.Name = "txtAno";
-            this.txtAno.Size = new System.Drawing.Size(200, 24);
+            this.txtAno.Size = new System.Drawing.Size(200, 21);
             this.txtAno.TabIndex = 4;
             // 
             // cmbCombustivel
@@ -111,7 +111,7 @@
             "Híbrido"});
             this.cmbCombustivel.Location = new System.Drawing.Point(120, 290);
             this.cmbCombustivel.Name = "cmbCombustivel";
-            this.cmbCombustivel.Size = new System.Drawing.Size(200, 26);
+            this.cmbCombustivel.Size = new System.Drawing.Size(200, 23);
             this.cmbCombustivel.TabIndex = 5;
             // 
             // cmbStatus
@@ -126,7 +126,7 @@
             "Indisponível"});
             this.cmbStatus.Location = new System.Drawing.Point(120, 370);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(200, 26);
+            this.cmbStatus.Size = new System.Drawing.Size(200, 23);
             this.cmbStatus.TabIndex = 7;
             // 
             // btnCadastrar
@@ -173,7 +173,7 @@
             "Amarelo"});
             this.cmbCor.Location = new System.Drawing.Point(120, 210);
             this.cmbCor.Name = "cmbCor";
-            this.cmbCor.Size = new System.Drawing.Size(200, 26);
+            this.cmbCor.Size = new System.Drawing.Size(200, 23);
             this.cmbCor.TabIndex = 10;
             // 
             // cmbCategoria
@@ -189,7 +189,7 @@
             "Esportivo"});
             this.cmbCategoria.Location = new System.Drawing.Point(120, 330);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(200, 26);
+            this.cmbCategoria.Size = new System.Drawing.Size(200, 23);
             this.cmbCategoria.TabIndex = 11;
             // 
             // lblTitulo
@@ -202,6 +202,7 @@
             this.lblTitulo.TabIndex = 12;
             this.lblTitulo.Text = "Cadastro de Veículos";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
             // 
             // panelMain
             // 
@@ -248,7 +249,7 @@
             this.panelForm.Location = new System.Drawing.Point(0, 60);
             this.panelForm.Name = "panelForm";
             this.panelForm.Padding = new System.Windows.Forms.Padding(20);
-            this.panelForm.Size = new System.Drawing.Size(484, 441);
+            this.panelForm.Size = new System.Drawing.Size(484, 501);
             this.panelForm.TabIndex = 13;
             // 
             // lblCategoria
@@ -257,7 +258,7 @@
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.Location = new System.Drawing.Point(30, 333);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(79, 18);
+            this.lblCategoria.Size = new System.Drawing.Size(73, 15);
             this.lblCategoria.TabIndex = 20;
             this.lblCategoria.Text = "Categoria:";
             // 
@@ -267,7 +268,7 @@
             this.lblCor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCor.Location = new System.Drawing.Point(30, 213);
             this.lblCor.Name = "lblCor";
-            this.lblCor.Size = new System.Drawing.Size(39, 18);
+            this.lblCor.Size = new System.Drawing.Size(33, 15);
             this.lblCor.TabIndex = 19;
             this.lblCor.Text = "Cor:";
             // 
@@ -277,7 +278,7 @@
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(30, 373);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(59, 18);
+            this.lblStatus.Size = new System.Drawing.Size(51, 15);
             this.lblStatus.TabIndex = 18;
             this.lblStatus.Text = "Status:";
             // 
@@ -287,7 +288,7 @@
             this.lblCombustivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCombustivel.Location = new System.Drawing.Point(30, 293);
             this.lblCombustivel.Name = "lblCombustivel";
-            this.lblCombustivel.Size = new System.Drawing.Size(104, 18);
+            this.lblCombustivel.Size = new System.Drawing.Size(89, 15);
             this.lblCombustivel.TabIndex = 17;
             this.lblCombustivel.Text = "Combustível:";
             // 
@@ -297,7 +298,7 @@
             this.lblAno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAno.Location = new System.Drawing.Point(30, 173);
             this.lblAno.Name = "lblAno";
-            this.lblAno.Size = new System.Drawing.Size(41, 18);
+            this.lblAno.Size = new System.Drawing.Size(35, 15);
             this.lblAno.TabIndex = 16;
             this.lblAno.Text = "Ano:";
             // 
@@ -307,7 +308,7 @@
             this.lblValorDiaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorDiaria.Location = new System.Drawing.Point(30, 253);
             this.lblValorDiaria.Name = "lblValorDiaria";
-            this.lblValorDiaria.Size = new System.Drawing.Size(99, 18);
+            this.lblValorDiaria.Size = new System.Drawing.Size(87, 15);
             this.lblValorDiaria.TabIndex = 15;
             this.lblValorDiaria.Text = "Valor Diária:";
             // 
@@ -317,7 +318,7 @@
             this.lblPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaca.Location = new System.Drawing.Point(30, 133);
             this.lblPlaca.Name = "lblPlaca";
-            this.lblPlaca.Size = new System.Drawing.Size(54, 18);
+            this.lblPlaca.Size = new System.Drawing.Size(47, 15);
             this.lblPlaca.TabIndex = 14;
             this.lblPlaca.Text = "Placa:";
             // 
@@ -327,7 +328,7 @@
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.Location = new System.Drawing.Point(30, 93);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(58, 18);
+            this.lblMarca.Size = new System.Drawing.Size(51, 15);
             this.lblMarca.TabIndex = 13;
             this.lblMarca.Text = "Marca:";
             // 
@@ -337,13 +338,13 @@
             this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModelo.Location = new System.Drawing.Point(30, 53);
             this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(68, 18);
+            this.lblModelo.Size = new System.Drawing.Size(59, 15);
             this.lblModelo.TabIndex = 12;
             this.lblModelo.Text = "Modelo:";
             // 
             // FrmCadVeículos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(484, 561);

@@ -88,6 +88,12 @@
     <Compile Include="FrmDialogAluguel.Designer.cs">
       <DependentUpon>FrmDialogAluguel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGerenciarAdministradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerenciarAdministradores.Designer.cs">
+      <DependentUpon>FrmGerenciarAdministradores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,8 +106,16 @@
     <Compile Include="FrmInicial.Designer.cs">
       <DependentUpon>FrmInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRecuperarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecuperarSenha.Designer.cs">
+      <DependentUpon>FrmRecuperarSenha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuariologado.cs" />
+    <Compile Include="utilitarios.cs" />
     <EmbeddedResource Include="FrmADM.resx">
       <DependentUpon>FrmADM.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,11 +137,17 @@
     <EmbeddedResource Include="FrmDialogAluguel.resx">
       <DependentUpon>FrmDialogAluguel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerenciarAdministradores.resx">
+      <DependentUpon>FrmGerenciarAdministradores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicial.resx">
       <DependentUpon>FrmInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecuperarSenha.resx">
+      <DependentUpon>FrmRecuperarSenha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
